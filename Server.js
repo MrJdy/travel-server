@@ -1,5 +1,5 @@
 var PORT = 8888; //
-
+var hostName = '0.0.0.0';
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
@@ -39,5 +39,6 @@ var server = http.createServer(function (request, response) {
         }
     });
 });
-server.listen(PORT);
-console.log("Server runing at port: " + PORT + ".");
+server.listen(PORT, hostName, function(){
+    console.log(`服务器运行在  http://${hostName}:${PORT}`);
+});
